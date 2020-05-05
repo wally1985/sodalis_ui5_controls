@@ -1,7 +1,6 @@
 /*!
  * consodalis GmbH -> mainly me=> WALLY :-)
  */
-
 /**
  * Initialization Code and shared classes of library sodalis.de.controls.
  */
