@@ -39,6 +39,9 @@ sap.ui.define([
 				if (oModeControl) {
 					this.renderModeContent(rm, oLI, oModeControl);
 				}
+			} else {
+				rm.write('<td class="sapMListTblNavCol" aria-hidden="true">');
+				rm.write('</td>');
 			}
 		}
 
