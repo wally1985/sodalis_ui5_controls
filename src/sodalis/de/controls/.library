@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <library xmlns="http://www.sap.com/sap.ui.library.xsd">
     <name>sodalis.de.controls</name>
-    <vendor>SAP SE</vendor>
+    <vendor>consodalis</vendor>
     <version>1.0.0</version>
     <copyright>${copyright}</copyright>
     <title>>consodalis Library</title>
