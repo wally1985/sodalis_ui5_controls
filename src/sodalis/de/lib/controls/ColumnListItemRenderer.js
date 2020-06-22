@@ -6,13 +6,28 @@ sap.ui.define([
 ], function (ControlRenderer, Renderer, ListType, IconPool) {
 	"use strict";
 
-	/**
+	/*
 	 * ColumnLisItemRenderer renderer.
 	 * @namespace
 	 */
 	var ColumnLisItemRenderer = Renderer.extend(ControlRenderer);
 
-	/**
+	/*
+	 * Renders the HTML for the given control, using the provided
+	 * {@link sap.ui.core.RenderManager}.
+	 *
+	 * @param {sap.ui.core.RenderManager} oRm
+	 *            the RenderManager that can be used for writing to
+	 *            the Render-Output-Buffer
+	 * @param {sap.ui.core.Control} oControl
+	 *            the control to be rendered
+	 */
+	ColumnLisItemRenderer.renderModeContent = function (rm, oLI, oModeControl) {
+		oModeControl.setVisible(oLI.getSelectable());
+		ControlRenderer.renderModeContent.apply(this, arguments);
+	};
+
+	/*
 	 * Renders the HTML for the given control, using the provided
 	 * {@link sap.ui.core.RenderManager}.
 	 *
@@ -23,20 +38,18 @@ sap.ui.define([
 	 *            the control to be rendered
 	 */
 	ColumnLisItemRenderer.renderContentLatter = function (rm, oLI) {
-		var sMode = oLI.getMode(),
-			sIconURI;
+		var sMode = oLI.getMode();
 
 		this.renderCounter(rm, oLI);
 
 		if (oLI.getType() === ListType.Detail || oLI.getType() === ListType.DetailAndActive) {
 			if (oLI.getEditable()) {
-				sIconURI = IconPool.getIconURI("edit");
+				oLI.DetailIconURI = IconPool.getIconURI("edit");
 			} else {
-				sIconURI = IconPool.getIconURI("display");
+				oLI.DetailIconURI = IconPool.getIconURI("display");
 			}
 
-			if (sIconURI !== oLI.DetailIconURI && oLI._oDetailControl) {
-				oLI.DetailIconURI = sIconURI;
+			if (oLI._oDetailControl) {
 				oLI._oDetailControl.destroy();
 				oLI._oDetailControl = undefined;
 			}

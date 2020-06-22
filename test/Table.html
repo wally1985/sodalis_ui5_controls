@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <title>Table - sodalis.de.lib.controls</title>
+      <base href="../../../../">
+      <!--[if lte IE 9]><script type="text/javascript">
+         (function() {
+                var baseTag = document.getElementsByTagName('base')[0];
+                baseTag.href = baseTag.href;
+         })();
+      </script><![endif]-->
+      <!-- ********************************************************************** -->
+      <!-- SAPUI5 Bootstrap:                                                     -->
+      <!-- Extend the "libs" property if you like to import additional libraries  -->
+      <!-- ********************************************************************** -->
+      <script id="sap-ui-bootstrap" 
+         type="text/javascript"
+         data-sap-ui-libs="sodalis.de.lib"
+         data-sap-ui-xx-lesssupport="true"
+         src="resources/sap-ui-core.js"
+         data-sap-ui-theme="sap_belize">
+      </script>
+      
+      <script type="text/javascript">
+      
+    	var model = new sap.ui.model.json.JSONModel({
+    		items: [{
+    				text: "item 1",
+    				deleteable: true,
+    				editable: true,
+    				selectable: true
+    			},{
+    				text: "item 2",
+    				deleteable: false,
+    				editable: true,
+    				selectable: false
+    			},{
+    				text: "item 3",
+    				deleteable: true,
+    				editable: false,
+    				selectable: true
+    			},{
+    				text: "item 4",
+    				deleteable: true,
+    				editable: true,
+    				selectable: true
+    			},{
+    				text: "item 5",
+    				deleteable: false,
+    				editable: false,
+    				selectable: false
+    			}
+    		]	
+    	});
+      
+         var Table = new sodalis.de.lib.controls.Table({
+         	deleteActive: true,
+         	mode: sap.m.ListMode.MultiSelect,
+         	columns:[
+         		new sap.m.Column({
+         			header: new sap.m.Text({text:"Titel"})
+         		})
+         	],
+			items: {
+				path: "/items",
+				template: new sodalis.de.lib.controls.ColumnListItem({
+					cells:[
+						new sap.m.Text({text:"{text}"})
+					],
+					type: sap.m.ListType.Detail,
+					editable: "{editable}",
+					deleteable: "{deleteable}",
+					selectable: "{selectable}"
+				})
+			}
+         });
+         
+         Table.setModel(model);
+         Table.placeAt("content");
+         
+      </script>
+   </head>
+   <body class="sapUiBody" role="application">
+      <h1 id="header">Test Page for <code>sodalis.de.lib.controls.Table</code></h1>
+      <div id="content"></div>
+   </body>
+</html>
