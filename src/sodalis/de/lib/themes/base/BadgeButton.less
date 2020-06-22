@@ -1,0 +1,16 @@
+.sodalisBadgeBtn{  
+	position : relative;  
+}  
+
+.sodalisBadgeBtn[data-badgeCount] > .sapMBtnInner > .sodalisBadgeInner{
+	background: @sapUiContentBadgeBackground;  
+	color: contrast(@sapUiContentBadgeBackground);
+	content: attr(data-badgeCount);  
+	position: absolute;  
+	width: 1.3rem;
+	height: 1.3rem;
+	top: -0.25rem;
+	right: -0.5rem;
+	border-radius: 50%;
+	line-height: 1.3rem;
+}
