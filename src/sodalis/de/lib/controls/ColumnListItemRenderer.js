@@ -1,51 +1,67 @@
 sap.ui.define([
 	"sap/m/ColumnListItemRenderer",
+	"sap/ui/core/Renderer",
 	"sap/m/ListType",
 	"sap/ui/core/IconPool"
-], function (ControlRenderer, ListType, IconPool) {
+], function (ControlRenderer, Renderer, ListType, IconPool) {
 	"use strict";
-	return ControlRenderer.extend("sodalis.de.controls.ColumnListItemRenderer", {
 
-		renderContentLatter: function (rm, oLI) {
-			var sMode = oLI.getMode(),
-				sIconURI;
+	/**
+	 * ColumnLisItemRenderer renderer.
+	 * @namespace
+	 */
+	var ColumnLisItemRenderer = Renderer.extend(ControlRenderer);
 
-			this.renderCounter(rm, oLI);
+	/**
+	 * Renders the HTML for the given control, using the provided
+	 * {@link sap.ui.core.RenderManager}.
+	 *
+	 * @param {sap.ui.core.RenderManager} oRm
+	 *            the RenderManager that can be used for writing to
+	 *            the Render-Output-Buffer
+	 * @param {sap.ui.core.Control} oControl
+	 *            the control to be rendered
+	 */
+	ColumnLisItemRenderer.renderContentLatter = function (rm, oLI) {
+		var sMode = oLI.getMode(),
+			sIconURI;
 
-			if (oLI.getType() === ListType.Detail || oLI.getType() === ListType.DetailAndActive) {
-				if (oLI.getEditable()) {
-					sIconURI = IconPool.getIconURI("edit");
-				} else {
-					sIconURI = IconPool.getIconURI("display");
-				}
+		this.renderCounter(rm, oLI);
 
-				if (sIconURI !== oLI.DetailIconURI && oLI._oDetailControl) {
-					oLI.DetailIconURI = sIconURI;
-					oLI._oDetailControl.destroy();
-					oLI._oDetailControl = undefined;
-				}
-			}
-
-			this.renderType(rm, oLI);
-			this.renderMode(rm, oLI, 1);
-
-			if (this.isModeMatched(sMode, 1)) {
-				// no dublicate renderings
-				return;
-			}
-
-			if (oLI.getDeleteable() && oLI.getListProperty("deleteActive")) {
-				let oModeControl = oLI.getDeleteControl(true);
-				if (oModeControl) {
-					this.renderModeContent(rm, oLI, oModeControl);
-				}
+		if (oLI.getType() === ListType.Detail || oLI.getType() === ListType.DetailAndActive) {
+			if (oLI.getEditable()) {
+				sIconURI = IconPool.getIconURI("edit");
 			} else {
-				/* eslint-disable */
-				rm.write('<td class="sapMListTblNavCol" aria-hidden="true">');
-				rm.write('</td>');
-				/* eslint-enable */
+				sIconURI = IconPool.getIconURI("display");
+			}
+
+			if (sIconURI !== oLI.DetailIconURI && oLI._oDetailControl) {
+				oLI.DetailIconURI = sIconURI;
+				oLI._oDetailControl.destroy();
+				oLI._oDetailControl = undefined;
 			}
 		}
 
-	});
+		this.renderType(rm, oLI);
+		this.renderMode(rm, oLI, 1);
+
+		if (this.isModeMatched(sMode, 1)) {
+			// no dublicate renderings
+			return;
+		}
+
+		if (oLI.getDeleteable() && oLI.getListProperty("deleteActive")) {
+			let oModeControl = oLI.getDeleteControl(true);
+			if (oModeControl) {
+				this.renderModeContent(rm, oLI, oModeControl);
+			}
+		} else {
+			/* eslint-disable */
+			rm.write('<td class="sapMListTblNavCol" aria-hidden="true">');
+			rm.write('</td>');
+			/* eslint-enable */
+		}
+	};
+
+	return ColumnLisItemRenderer;
 });

@@ -2,7 +2,7 @@ sap.ui.define([
 	"sap/m/ColumnListItem"
 ], function (Control) {
 	"use strict";
-	return Control.extend("sodalis.de.controls.ColumnListItem", {
+	return Control.extend("sodalis.de.lib.controls.ColumnListItem", {
 		metadata: {
 			properties: {
 				editable: {
