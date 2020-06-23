@@ -30,5 +30,9 @@ sap.ui.define([
 		}
 	};
 
+	ColumnListItem.prototype.isSelectable = function () {
+		return Control.prototype.isSelectable.apply(this, arguments) && this.getSelectable();
+	};
+
 	return ColumnListItem;
 });
