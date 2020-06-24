@@ -29,7 +29,7 @@ sap.ui.define([
 		var iCount = oControl.getCount();
 
 		if (iCount) {
-			oRm.class("sodalisBadgeBtn");
+			oRm.addClass("sodalisBadgeBtn");
 			oControl.data("badgeCount", iCount.toString(), true);
 
 			oControl.addEventDelegate({
