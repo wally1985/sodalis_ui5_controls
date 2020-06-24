@@ -23,7 +23,9 @@ sap.ui.define([
 	 *            the control to be rendered
 	 */
 	ColumnLisItemRenderer.renderModeContent = function (rm, oLI, oModeControl) {
-		oModeControl.setVisible(oLI.getSelectable());
+		if (oModeControl !== oLI.getDeleteControl()) {
+			oModeControl.setVisible(oLI.getSelectable());
+		}
 		ControlRenderer.renderModeContent.apply(this, arguments);
 	};
 
