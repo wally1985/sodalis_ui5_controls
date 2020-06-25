@@ -20,7 +20,6 @@
 	"license": "UNLICENSED",
 	"dependencies": {
 		"@openui5/sap.ui.core": "",
-		"@openui5/themelib_sap_belize": "",
-		"@openui5/themelib_sap_fiori_3": ""
+		"@openui5/themelib_sap_belize": ""
 	}
 }
