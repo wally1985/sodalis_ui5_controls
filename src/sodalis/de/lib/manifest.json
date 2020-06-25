@@ -17,7 +17,8 @@
 		"supportedThemes": [
 			"sap_hcb",
 			"sap_belize",
-			"sap_belize_plus"
+			"sap_belize_plus",
+			"sap_fiori_3"
 		]
 	},
 
@@ -38,7 +39,6 @@
 			"css": true,
 			"content": {
 				"controls": [
-					"sodalis.de.lib.controls.Example",
 					"sodalis.de.lib.controls.BadgeButton",
 					"sodalis.de.lib.controls.Table",
 					"sodalis.de.lib.controls.ColumnListItem"

@@ -29,7 +29,6 @@ sap.ui.define(["sap/ui/core/library"], // library dependency
 			types: [],
 			interfaces: [],
 			controls: [
-				"sodalis.de.lib.controls.Example",
 				"sodalis.de.lib.controls.BadgeButton",
 				"sodalis.de.lib.controls.Table",
 				"sodalis.de.lib.controls.ColumnListItem"
