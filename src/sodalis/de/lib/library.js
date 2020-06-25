@@ -31,7 +31,8 @@ sap.ui.define(["sap/ui/core/library"], // library dependency
 			controls: [
 				"sodalis.de.lib.controls.BadgeButton",
 				"sodalis.de.lib.controls.Table",
-				"sodalis.de.lib.controls.ColumnListItem"
+				"sodalis.de.lib.controls.ColumnListItem",
+				"sodalis.de.lib.controls.RichTooltip"
 			],
 			elements: []
 		});
