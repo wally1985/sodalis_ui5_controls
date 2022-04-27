@@ -6,7 +6,7 @@
 		"@sap/di.code-validation.js": "1.1.6",
 		"@sap/di.code-validation.xml": "1.1.16",
 		"@ui5/cli": "1.14.0",
-		"grunt": "1.0.1",
+		"grunt": "1.5.2",
 		"grunt-run": "0.8.1"
 	},
 	"main": "Gruntfile.js",
